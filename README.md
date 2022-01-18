@@ -48,8 +48,32 @@ Input your username:
 
 После ввода имени пользователя будет выведена история последних сообщений. 
 Можно начинать пользоваться чатом.
+
+```
+----------------------------------
+Welcome! You are on master client!
+----------------------------------
+Input your username: 
+Admin
+History is empty. Be the first to post something!
+Hello world!
+Admin (Tue Jan 18 17:46:06 MSK 2022) : Hello world!
+```
+
 При запуске с флагом client вас также должен встретить приветсвенный 
 диалог.
+
+```
+----------------------------------
+Welcome! You are on simple client!
+----------------------------------
+Input your username: 
+Client
+Last 1 messages:
+Admin (Tue Jan 18 17:46:06 MSK 2022) : Hello world!
+Hello admin!
+Client (Tue Jan 18 17:47:12 MSK 2022) : Hello admin!
+```
 
 ### Замечание
 "Мастер" клиент запускается на порту 8080.
