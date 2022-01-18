@@ -1,0 +1,19 @@
+spring:
+  jpa:
+    database: POSTGRESQL
+    show-sql: false
+    hibernate:
+      ddl-auto: update
+  datasource:
+    url: jdbc:postgresql://localhost:5432/gostask
+    username: gostask
+    password: gostask
+    driverClassName: org.postgresql.Driver
+
+logging:
+  level:
+    root: ERROR
+    org.springframework.web: ERROR
+    guru.springframework.controllers: ERROR
+    org.hibernate: ERROR
+    org: ERROR
