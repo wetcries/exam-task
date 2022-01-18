@@ -1,6 +1,5 @@
 package com.app1c.chat;
 
-import com.app1c.chat.domains.ChatMessageRequest;
 import com.app1c.chat.websocket.client.MyStompSessionHandler;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -11,7 +10,6 @@ import org.springframework.web.socket.client.WebSocketClient;
 import org.springframework.web.socket.client.standard.StandardWebSocketClient;
 import org.springframework.web.socket.messaging.WebSocketStompClient;
 
-import java.util.Arrays;
 import java.util.Scanner;
 import java.util.concurrent.ExecutionException;
 
@@ -21,6 +19,9 @@ public class ChatApplication implements CommandLineRunner {
     public static void main(String[] args) throws ExecutionException, InterruptedException {
         if (args.length != 0) {
             if (args[0].equals("client")) {
+                System.out.println("----------------------------------");
+                System.out.println("Welcome! You are on simple client!");
+                System.out.println("----------------------------------");
                 runUserInterface();
                 return;
             }

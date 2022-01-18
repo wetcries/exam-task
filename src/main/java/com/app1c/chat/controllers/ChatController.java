@@ -5,6 +5,7 @@ import com.app1c.chat.domains.ChatMessage;
 import com.app1c.chat.domains.ChatMessageRequest;
 import com.app1c.chat.services.MessageService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.messaging.handler.annotation.DestinationVariable;
 import org.springframework.messaging.handler.annotation.MessageMapping;
 import org.springframework.messaging.handler.annotation.SendTo;
 import org.springframework.stereotype.Controller;
@@ -27,9 +28,9 @@ public class ChatController {
         return messageService.saveMessage(request);
     }
 
-    @MessageMapping("/history")
-    @SendTo("/topic/history")
-    ChatHistory chatHistory() {
+    @MessageMapping("/history/{sessionId}")
+    @SendTo("/topic/history/{sessionId}")
+    ChatHistory chatHistory(@DestinationVariable String sessionId) {
         return new ChatHistory(messageService.getLast50Messages());
     }
 

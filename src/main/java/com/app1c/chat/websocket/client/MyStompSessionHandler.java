@@ -30,8 +30,8 @@ public class MyStompSessionHandler extends StompSessionHandlerAdapter {
         HistoryStompHandler historyStompHandler = new HistoryStompHandler();
         MessageStompHandler messageStompHandler = new MessageStompHandler();
         session.subscribe("/topic/messages", messageStompHandler);
-        session.subscribe("/topic/history", historyStompHandler);
-        session.send("/app/history", null);
+        session.subscribe("/topic/history/" + session.getSessionId(), historyStompHandler);
+        session.send("/app/history/" + session.getSessionId(), session.getSessionId());
     }
 
     @Override

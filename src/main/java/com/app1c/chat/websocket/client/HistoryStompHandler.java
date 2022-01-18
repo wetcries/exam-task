@@ -22,7 +22,12 @@ public class HistoryStompHandler extends StompSessionHandlerAdapter {
     @Override
     public void handleFrame(StompHeaders headers, Object payload) {
         ChatHistory history = (ChatHistory) payload;
-        System.out.println("Last 50 messages:");
+        if (history.getHistory().isEmpty()) {
+            System.out.println("History is empty. Be the first to post something!");
+            return;
+        }
+
+        System.out.println("Last " + history.getHistory().size() + " messages:");
         printHistory(history);
     }
 
